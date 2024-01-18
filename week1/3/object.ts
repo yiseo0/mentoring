@@ -27,13 +27,8 @@
     - constructor 내부에 프로퍼티 정의 필요
 */
 
-interface IObject {
-  name: string;
-  age: number;
-}
-
 // 1) 객체 리터럴
-const obj1: IObject = {
+const obj1: { name: string; age: number } = {
   name: "홍길동",
   age: 20,
 };

@@ -1,6 +1,6 @@
 describe("객체 생성 테스트", () => {
   it("1) 객체 리터럴", () => {
-    const obj1: IObject = {
+    const obj1: { name: string; age: number } = {
       name: "홍길동",
       age: 20,
     };
