@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.cloneDeep = void 0;
+exports.memoize = exports.cloneDeep = void 0;
 /**깊은 복사를 실행하는 함수 */
 var cloneDeep = function (target) {
     var result;
@@ -24,3 +24,22 @@ var cloneDeep = function (target) {
     return result;
 };
 exports.cloneDeep = cloneDeep;
+/**memoize 함수 */
+var memoize = function (func) {
+    var results = {};
+    return function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        var argsKey = JSON.stringify(args);
+        if (results[argsKey]) {
+            return results[argsKey];
+        }
+        else {
+            results[argsKey] = func.apply(void 0, args);
+            return results[argsKey];
+        }
+    };
+};
+exports.memoize = memoize;
