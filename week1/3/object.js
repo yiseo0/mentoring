@@ -13,13 +13,13 @@ var obj1 = {
 console.log(typeof obj1); // object
 console.log(obj1); // {name : "홍길동", age : 20}
 // 2) 생성자 함수
-// Object 생성자 함수
+// 2-1) Object 생성자 함수
 var obj2 = new Object();
 obj2.name = "홍길동";
 obj2.age = 20;
 console.log(typeof obj2); // object
 console.log(obj2); // {name : "홍길동", age : 20}
-// 생성자 함수
+// 2-2) 생성자 함수
 function Person1(name, age) {
     // 인스턴스 초기화
     // (1)빈 객체(인스턴스 생성)가 this에 바인딩
@@ -31,9 +31,9 @@ function Person1(name, age) {
 }
 // 인스턴스 생성
 var obj3 = new Person1("홍길동", 20);
-console.log(typeof obj3);
-console.log(obj3);
-// 3) 클래스(ES6)
+console.log(typeof obj3); // object
+console.log(obj3); // Person1 { name: '홍길동', age: 20 }
+// 3) 클래스
 var Person2 = /** @class */ (function () {
     function Person2(name, age) {
         this.name = name;
@@ -42,5 +42,5 @@ var Person2 = /** @class */ (function () {
     return Person2;
 }());
 var obj4 = new Person2("홍길동", 20);
-console.log(typeof obj4);
-console.log(obj4);
+console.log(typeof obj4); // object
+console.log(obj4); // Person2 { name: '홍길동', age: 20 }

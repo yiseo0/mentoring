@@ -27,8 +27,13 @@
     - constructor 내부에 프로퍼티 정의 필요
 */
 
+interface Obj {
+  name?: string;
+  age?: number;
+}
+
 // 1) 객체 리터럴
-const obj1: { name: string; age: number } = {
+const obj1: Obj = {
   name: "홍길동",
   age: 20,
 };
@@ -37,7 +42,7 @@ console.log(obj1); // {name : "홍길동", age : 20}
 
 // 2) 생성자 함수
 // 2-1) Object 생성자 함수
-const obj2: any = new Object();
+const obj2: Obj = new Object();
 obj2.name = "홍길동";
 obj2.age = 20;
 console.log(typeof obj2); // object
