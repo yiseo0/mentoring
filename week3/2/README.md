@@ -5,7 +5,7 @@
 Promise 객체를 라이브러리 없이 구현해보세요.
 
 - pending, fulfilled, reject 상태를 내부에서 관리
-- then, catch, resolve, reject, finally 메서드 구현
+- then, catch, resolve, reject, finally 메서드 구현 
 - promise chaning 구현
 
 ### 목적
