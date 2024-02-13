@@ -22,7 +22,7 @@ class Queue<T> {
   }
 }
 
-class MyPromise<T> {
+export class MyPromise<T> {
   #state: State = STATE.PENDING;
   #value: T | undefined;
   #resolveBind = this.#resolve.bind(this);
@@ -113,7 +113,7 @@ class MyPromise<T> {
     });
   }
 
-  catch(catchCallback: (value: T) => T | PromiseLike<T>) {
+  catch(catchCallback?: (value: T) => T | PromiseLike<T>) {
     return this.then(undefined, catchCallback);
   }
 
@@ -130,9 +130,3 @@ class MyPromise<T> {
     );
   }
 }
-
-new MyPromise((resolve) => {
-  setTimeout(() => {
-    resolve(1);
-  }, 1000);
-}).then((v) => console.log(v));
