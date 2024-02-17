@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 이벤트루프 시뮬레이션 도구</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./index.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>JS 이벤트루프 시뮬레이션 도구</h1>
+        <button class="refreshBtn" onclick="location.reload()">새로고침</button>
+        <div id="buttons">
+            <button id="syncFunc">일반 함수</button>
+            <button id="asyncMacroTask">비동기 함수<br>(Macro Task Queue)</button>
+            <button id="asyncMicroTask">비동기 함수 <br>(Micro Task Queue)</button>
+        </div>
+    </header>
+
+    <main id="main">
+        <setcion class="box stack-area">
+            <h3 class="box-title">Call Stack</h3>
+            <div id="stack" class="box-content"></div>
+        </setcion>
+        <setcion class="box webapis-area">
+            <h3 class="box-title">webAPis</h3>
+            <div id="webApis" class="box-content"></div>
+        </setcion>
+        <setcion class="box eventloop-area">
+            <h3 class="box-title">Event Loop</h3>
+            <div id="eventLoop" class="box_content">
+                <span class="material-symbols-outlined">manage_history</span>
+            </div>
+        </setcion>
+        <setcion class="box macro-area">
+            <h3 class="box-title">Macro Task Queue</h3>
+            <div id="macroQueue" class="box-content"></div>
+        </setcion>
+        <setcion class="box micro-area">
+            <h3 class="box-title">Micro Task Queue</h3>
+            <div id="microQueue" class="box-content"></div>
+        </setcion>
+        <setcion class="box console-area">
+            <h3 class="box-title">Console</h3>
+            <div id="console" class="box-content"></div>
+            <button onclick="clearConsole()">지우기</button>
+        </setcion>
+    </main>
+</body>
+
+</html>
