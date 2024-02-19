@@ -17,19 +17,3 @@ export const cloneDeep = <T>(target: T): T => {
   }, {});
   return copy as T;
 };
-
-/**memoize 함수 */
-export const memoize = <T extends unknown[], R>(func: (...args: T) => R) => {
-  const results: Record<string, R> = {};
-
-  return (...args: T): R => {
-    const argsKey: string = JSON.stringify(args);
-    if (results.hasOwnProperty(argsKey)) {
-      return results[argsKey];
-    }
-
-    const result: R = func(...args);
-    results[argsKey] = result;
-    return results[argsKey];
-  };
-};
