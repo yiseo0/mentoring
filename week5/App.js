@@ -7,9 +7,9 @@ export default function App({ target }) {
   const router = createRouter(target);
 
   router.init([
-    { path: "/week5/", page: () => new SectionPage1({ target }) },
-    { path: "/week5/2", page: () => new SectionPage2({ target }) },
-    { path: "/week5/3", page: () => new SectionPage3({ target }) },
+    { path: "/", page: () => new SectionPage1({ target }) },
+    { path: "/2", page: () => new SectionPage2({ target }) },
+    { path: "/3", page: () => new SectionPage3({ target }) },
   ]);
 
   window.addEventListener("click", (event) => {
