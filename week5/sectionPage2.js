@@ -41,7 +41,7 @@ export default function sectionPage2() {
    </div>
 
    <div class="buttons">
-      <button type="button" class="prev" data-navigate="/">뒤로</button>
+      <button type="button" class="prev" data-navigate="">뒤로</button>
       <button type="button" id="validationBtn" class="submit" data-navigate="/3">제출</button>
       <button type="button" id="resetBtn" class="reset">양식지우기</button>
    </div>

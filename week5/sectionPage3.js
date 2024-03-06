@@ -9,7 +9,7 @@ export default function sectionPage3() {
          응답이 기록되었습니다.<br>
          ${JSON.stringify(FORM_DATA)}
       </div>
-      <a class="first" href="#/">다른 응답 제출</a>
+      <a class="first" href="">다른 응답 제출</a>
    </header>
    `;
 }

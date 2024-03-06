@@ -40,7 +40,7 @@ window.addEventListener("click", (event) => {
 
 const router = createRouter();
 router
-  .addRouter("#/", pages.sectionPage1)
+  .addRouter("", pages.sectionPage1)
   .addRouter("#/2", pages.sectionPage2)
   .addRouter("#/3", pages.sectionPage3)
   .start();
