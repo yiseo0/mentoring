@@ -1,39 +1,46 @@
-// 유효성 검사
+// form data 전역변수
+export const FORM_DATA = sessionStorage.getItem("data")
+  ? JSON.parse(sessionStorage.getItem("data"))
+  : { radio: "", checkbox: [], select: "", textarea: "" };
+
+// 입력필드 수정 시 세션스토리지에 저장
+document.addEventListener("input", (event) => {
+  const { name, value } = event.target;
+
+  if (name === "checkbox") {
+    FORM_DATA[name] = Array.from(form.checkbox).map((i) => i.checked);
+  } else {
+    FORM_DATA[name] = value;
+  }
+
+  sessionStorage.setItem("data", JSON.stringify(FORM_DATA));
+});
+
+/** 유효성 검사 함수*/
 export function validation() {
   const form = document.form;
   const boxes = document.querySelectorAll(".box");
   boxes.forEach((box) => box.classList.remove("empty"));
 
-  const data = sessionStorage.getItem("data")
-    ? JSON.parse(sessionStorage.getItem("data"))
-    : {};
-
   if (form.matches("#form1")) {
-    if (!form.radio.value) {
+    if (!FORM_DATA.radio) {
       boxes[0].classList.add("empty");
       return false;
     }
-    if (form.querySelectorAll("input[type='checkbox']:checked").length === 0) {
+    if (!FORM_DATA.checkbox.includes(true)) {
       boxes[1].classList.add("empty");
       return false;
     }
-
-    data.radio = form.radio.value;
-    data.checkbox = Array.from(form.checkbox).map((i) => i.checked);
   } else {
-    if (!form.select.value) {
+    if (!FORM_DATA.select) {
       boxes[0].classList.add("empty");
       return false;
     }
-    if (!form.textarea.value) {
+    if (!FORM_DATA.textarea) {
       boxes[1].classList.add("empty");
       return false;
     }
-
-    data.select = form.select.value;
-    data.textarea = form.textarea.value;
   }
 
-  sessionStorage.setItem("data", JSON.stringify(data));
   return true;
 }
