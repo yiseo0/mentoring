@@ -12,8 +12,24 @@ const pages = {
 };
 
 window.addEventListener("click", (event) => {
+  // 다른 응답 제출
+  if (event.target.matches("#newFormBtn")) {
+    event.preventDefault();
+    FORM_DATA.radio = "";
+    FORM_DATA.checkbox = [];
+    FORM_DATA.select = "";
+    FORM_DATA.textarea = "";
+
+    sessionStorage.setItem("data", JSON.stringify(FORM_DATA));
+
+    router.navigate("");
+    return;
+  }
+
   // 양식 지우기
   if (event.target.matches("#resetBtn")) {
+    form.reset();
+
     if (form.matches("#form1")) {
       FORM_DATA.radio = "";
       FORM_DATA.checkbox = [];
@@ -21,7 +37,6 @@ window.addEventListener("click", (event) => {
       FORM_DATA.select = "";
       FORM_DATA.textarea = "";
     }
-    form.reset();
 
     sessionStorage.setItem("data", JSON.stringify(FORM_DATA));
     return;
