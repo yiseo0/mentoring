@@ -43,6 +43,7 @@ tasks.forEach((task) => {
 
       let droppableBelow = elemBelow.closest(".droppable");
 
+      // 이미 드롭 가능한 요소에 마우스가 들어와 있으면 로직이 실행되지 않는다. 
       if (currentDroppable != droppableBelow) {
         if (currentDroppable) {
           // 드롭 가능한 요소에 마우스가 나갈 때 처리하는 로직
@@ -52,18 +53,22 @@ tasks.forEach((task) => {
         if (currentDroppable) {
           // 드롭 가능한 요소에 마우스가 들어올 때 처리하는 로직
           enterDroppable(currentDroppable);
+          droppableBelow.append(cloneTask);
         }
       }
 
-      // task 요소에 마우스가 들어올 때 처리하는 로직
+      // 이미 드롭 가능한 요소에 마우스가 들어와 있으면 로직이 실행된다.
+      // task 순서 변경 시 실행되는 로직
       if (elemBelow.matches(".task")) {
-        // task 잔상 처리
-        elemBelow.before(cloneTask);
-        return;
-      }
+        const cloneTaskRect = cloneTask.getBoundingClientRect();
+        const cloneTaskCoord = cloneTaskRect.top + cloneTaskRect.height / 2;
 
-      if (droppableBelow) {
-        droppableBelow.append(cloneTask);
+        // cloneTask 위치를 기준으로 잔상처리
+        if (cloneTaskCoord < event.pageY) {
+          elemBelow.after(cloneTask);
+          return;
+        }
+        elemBelow.before(cloneTask);
       }
     };
 
