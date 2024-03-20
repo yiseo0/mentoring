@@ -1,3 +1,5 @@
+const INITIAL_TODO_ID = 1;
+
 class Model {
   constructor() {
     this.todos = JSON.parse(localStorage.getItem("todos")) || [];
@@ -5,7 +7,10 @@ class Model {
 
   addTodo(todoText) {
     const todo = {
-      id: this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1,
+      id:
+        this.todos.length > 0
+          ? this.todos[this.todos.length - 1].id + 1
+          : INITIAL_TODO_ID,
       text: todoText,
       complete: false,
     };
