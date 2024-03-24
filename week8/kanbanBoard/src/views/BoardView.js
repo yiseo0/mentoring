@@ -5,11 +5,11 @@ export default class BoardView extends View {
   initialize() {
     this.$target.id = "board";
 
-    const groupList = this.model.getBoardData();
+    const groupList = this.viewModel.getBoardData();
     groupList.forEach((group) => this.createGroupView(group));
   }
 
   createGroupView(group) {
-    new GroupView(this.model, this.$target, group);
+    new GroupView(this.viewModel, this.$target, group);
   }
 }

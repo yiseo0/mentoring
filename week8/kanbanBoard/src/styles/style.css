@@ -29,7 +29,7 @@ i { font-style:normal }
 .group .group-header .btn-delete { } 
 
 .task { width: 300px; height: 80px; margin: auto; border: 1px solid #000; background: pink; cursor: pointer; } 
-.task.clone { background-color: gray; } 
+.task.dragging { background-color: gray; } 
 .task .task-header { } 
 .task .task-header .title { } 
 .task .task-header .btn-delete { } 

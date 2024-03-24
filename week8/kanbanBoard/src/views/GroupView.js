@@ -6,7 +6,8 @@ export default class BoardView extends View {
     const { groupId, groupTask } = this.props;
 
     this.$target.id = groupId;
-    this.$target.className = "group droppable";
+    this.$target.className = "group";
+    this.viewModel.registerGroupContainer(this.$target);
 
     groupTask.forEach((task) => this.createTaskView(task));
   }
@@ -24,16 +25,6 @@ export default class BoardView extends View {
   }
 
   createTaskView(task) {
-    new TaskView(this.model, this.$target, task);
-  }
-
-  setEvent() {
-    this.addEvent("click", ".btn-add", () => {
-      console.log("그룹 추가");
-    });
-
-    this.addEvent("click", ".btn-delete", () => {
-      console.log("그룹 삭제");
-    });
+    new TaskView(this.viewModel, this.$target, task);
   }
 }

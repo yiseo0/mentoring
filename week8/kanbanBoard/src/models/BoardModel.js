@@ -1,6 +1,6 @@
 import Model from "../core/Model.js";
 
-export default class BoardModel extends Model {
+class BoardModel extends Model {
   constructor() {
     super();
   }
@@ -9,3 +9,5 @@ export default class BoardModel extends Model {
     return this.state.board;
   }
 }
+
+export default new BoardModel();

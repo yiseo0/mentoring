@@ -1,12 +1,9 @@
-import Observable from "./observable.js";
 import initialData from "../utils/initialData.js";
 
-export default class Model extends Observable {
+export default class Model {
   state;
 
   constructor() {
-    super();
-
     this.state = this.initialState();
   }
 
