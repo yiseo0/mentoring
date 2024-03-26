@@ -1,13 +1,14 @@
-import Model from "../core/Model.js";
+
+import Model from '../core/Model.js';
 
 class BoardModel extends Model {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  getBoardData() {
-    return this.state.board;
-  }
+    getBoardData() {
+        return this.state.board;
+    }
 }
 
-export default new BoardModel();
+export default new BoardModel()

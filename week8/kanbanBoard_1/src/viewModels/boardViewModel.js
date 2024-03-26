@@ -31,4 +31,31 @@ export default class BoardViewModel extends ViewModel {
       GroupContainer.insertBefore(this.$targetDraggable, afterElement);
     });
   }
+
+  registerToggleButton(button, toggleElement) {
+    button.addEventListener("click", () => {
+      toggleElement.classList.toggle("open");
+    });
+  }
+
+  registerSubmitTask(form) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const { taskTitle, taskAssignee } = form;
+
+      // if() {
+      //   return
+      // }
+
+      // this.model.
+
+      // if (this._todoText) {
+      //   handler(this._todoText);
+      //   this._resetInput();
+      // }
+
+      // this.notify(getModAddT/ask(groupId, target));
+    });
+  }
 }

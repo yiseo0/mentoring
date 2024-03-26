@@ -1,20 +1,19 @@
 import View from "../core/View.js";
 
 export default class HeaderView extends View {
-  initialize() {
-    this.$target.id = "header";
-  }
 
-  template() {
-    return `
-      <h1>To Do List</h1>
-      <button type="button" class="btn-menu">menu</button>
-    `;
-  }
+    initialize(parent) {
+        this.$target.id = 'header';
 
-  setEvent() {
-    this.addEvent("click", "button", () => {
-      console.log("메뉴 열림");
-    });
-  }
+        this.$target.innerHTML = this.template();
+        this.documentFrag.appendChild(this.$target);
+        parent.appendChild(this.documentFrag);
+    }
+
+    template() {
+        return `
+            <h1>To Do List</h1>
+            <button type="button" class="btn-menu">menu</button>
+        `;
+    }
 }

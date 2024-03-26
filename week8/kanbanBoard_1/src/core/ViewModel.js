@@ -5,4 +5,6 @@ export default class ViewModel extends Observable {
     super();
     this.model = model;
   }
+
+  
 }

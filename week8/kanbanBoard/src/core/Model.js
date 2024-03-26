@@ -1,26 +1,27 @@
-import initialData from "../utils/initialData.js";
 
-export default class Model {
-  state;
+import Observable from '../core/Observable.js';
+import initialData from '../utils/initialData.js';
 
-  constructor() {
-    this.state = this.initialState();
-  }
+export default class Model extends Observable {
+    constructor() {
+        super();
+        this.state = this.initializeState();
+    }
 
-  initialState() {
-    const data = localStorage.getItem("data");
-    if (data) return JSON.parse(data);
+    setState(state) {
+        this.state = state;
+        this.saveState();
+    }
 
-    localStorage.setItem("data", JSON.stringify(initialData));
-    return initialData;
-  }
+    initializeState() {
+        const data = localStorage.getItem('data');
+        if (data) return JSON.parse(data);
 
-  setState(state) {
-    this.state = state;
-    saveState();
-  }
+        localStorage.setItem('data', JSON.stringify(initialData));
+        return initialData;
+    }
 
-  saveState() {
-    localStorage.setItem("data", JSON.stringify(this.state));
-  }
+    saveState() {
+        localStorage.setItem('data', JSON.stringify(this.state));
+    }
 }

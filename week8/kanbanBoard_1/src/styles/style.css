@@ -15,9 +15,9 @@ iframe { overflow:hidden; margin:0; border:0; padding:0; vertical-align:top }
 mark { background-color:transparent } 
 i { font-style:normal } 
 
+/* BOARD */
 #root { display: flex; flex-direction: column; } 
 
-/* BOARD */
 #header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #000; } 
 #header h1 { font-size: 40px; line-height: 40px; } 
 #header .btn-menu { font-size: 20px; font-weight: bold; } 
@@ -25,22 +25,19 @@ i { font-style:normal }
 #board { display: flex; gap: 20px; } 
 
 .group { flex-shrink: 0; width: 320px; border: 1px solid #000; } 
-.group-header { display: flex; } 
-.group-header .btn-toggle { } 
-.group-header .btn-toggle:hover { color: gray; } 
-.group-header .btn-delete { } 
-.group-body { display: none; } 
-.group-body .group-form { } 
-.group-body .group-form { } 
-.group-body .btn-add { } 
-.group-body .btn-cancel { } 
+.group .group-header { display: flex; } 
+.group .group-header h2 { flex: 1; font-size: 20px; } 
+.group .group-header .btn-add { } 
+.group .group-header .btn-add:hover { color: gray; } 
+.group .group-header .btn-delete { } 
+.group__body { display: none; } 
 
 .task { width: 300px; height: 80px; margin: auto; border: 1px solid #000; background: pink; cursor: pointer; } 
 .task.dragging { background-color: gray; } 
 .task .task-header { } 
-.task-header .title { } 
-.task-header .btn-delete { } 
-.task-body { } 
-.task-body .task-assignee { } 
+.task .task-header .title { } 
+.task .task-header .btn-delete { } 
+.task .task-footer { } 
+.task .task-footer .assignee { } 
 
 .open { display: block; } 

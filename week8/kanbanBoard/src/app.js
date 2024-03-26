@@ -1,16 +1,19 @@
-import boardModel from "./models/BoardModel.js";
-import BoardViewModel from "./viewModels/boardViewModel.js";
-import HeaderView from "./views/HeaderView.js";
-import BoardView from "./views/BoardView.js";
+import BoardController from './controllers/BoardController.js';
+import boardModel from './models/BoardModel.js';
+import HeaderView from './Views/HeaderView.js';
+import BoardView from './Views/BoardView.js';
 
-const app = () => {
-  const $root = document.querySelector("#root");
+const initializeApp = () => {
+    const $app = document.querySelector('#app')
 
-  const boardViewModel = new BoardViewModel(boardModel);
-  const header = new HeaderView(boardViewModel, $root);
-  const board = new BoardView(boardViewModel, $root);
-};
+    const boardController = new BoardController(boardModel)
+    const header = new HeaderView(boardController);
+    const board = new BoardView(boardController);
+
+    header.initialize($app)
+    board.initialize($app)
+}
 
 window.addEventListener("DOMContentLoaded", () => {
-  app();
+    initializeApp();
 });

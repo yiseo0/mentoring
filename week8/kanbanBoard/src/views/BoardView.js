@@ -2,14 +2,20 @@ import View from "../core/View.js";
 import GroupView from "./GroupView.js";
 
 export default class BoardView extends View {
-  initialize() {
-    this.$target.id = "board";
 
-    const groupList = this.viewModel.getBoardData();
-    groupList.forEach((group) => this.createGroupView(group));
-  }
+    initialize(parent) {
+        this.$target.id = 'board';
 
-  createGroupView(group) {
-    new GroupView(this.viewModel, this.$target, group);
-  }
+        this.$target.innerHTML = this.template();
+        this.documentFrag.appendChild(this.$target);
+        parent.appendChild(this.documentFrag);
+
+        const groupList = this.controller.getBoardData();
+        groupList.forEach((group) => this.createGroupView(group));
+    }
+
+    createGroupView(group) {
+        const groupView = new GroupView(this.controller, group);
+        groupView.initialize(this.$target);
+    }
 }

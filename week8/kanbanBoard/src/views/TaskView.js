@@ -1,27 +1,36 @@
 import View from "../core/View.js";
 
 export default class TaskView extends View {
-  initialize() {
-    const { taskId } = this.props;
+    constructor(controller, { taskId, taskTitle, taskAssignee, taskUpdateAt }) {
+        super(controller);
 
-    this.$target.id = taskId;
-    this.$target.className = "task";
-    this.$target.draggable = true;
+        this.taskId = taskId;
+        this.taskTitle = taskTitle;
+        this.taskAssignee = taskAssignee;
+        this.taskUpdateAt = taskUpdateAt;
+    }
 
-    this.viewModel.registerDraggable(this.$target);
-  }
+    initialize(parent) {
+        this.$target.className = "task";
+        this.$target.dataset.gid = this.taskId;
+        this.$target.draggable = true;
 
-  template() {
-    const { taskTitle, taskAssignee } = this.props;
+        this.$target.innerHTML = this.template();
+        this.documentFrag.appendChild(this.$target);
+        parent.appendChild(this.documentFrag);
 
-    return `
-      <div class="task-header">
-         <div class="title">${taskTitle}</div>
-         <button type="button" class="btn-delete"></button>
-      </div>
-      <div class="task-footer">
-         <div class="assignee">${taskAssignee}</div>
-      </div>
-   `;
-  }
+        this.controller.registerDraggable(this.$target);
+    }
+
+    template() {
+        return `
+            <div class="task-header">
+                <div class="title">${this.taskTitle}</div>
+                <button type="button" class="btn-delete"></button>
+            </div>
+            <div class="task-body">
+                <div class="task-assignee">${this.taskAssignee}</div>
+            </div>
+        `;
+    }
 }
