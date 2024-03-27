@@ -1,15 +1,22 @@
 export default class View {
-    constructor(controller) {
-        this.controller = controller;
-        this.controller.model.subscribe(this)
+  constructor(controller) {
+    this.controller = controller;
+    this.controller.model.subscribe(this);
 
-        this.documentFrag = document.createDocumentFragment();
-        this.$target = document.createElement("div");
-    }
+    this.documentFrag = document.createDocumentFragment();
+    this.$target = document.createElement("div");
+  }
 
-    initialize() { }
+  initialize() {}
 
-    template() {
-        return "";
-    }
+  template() {
+    return "";
+  }
+
+  update() {}
+  render() {}
+  remove() {
+    this.controller.destroy();
+    this.$target.remove();
+  }
 }

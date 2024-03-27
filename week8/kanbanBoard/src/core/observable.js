@@ -10,8 +10,8 @@ export default class Observable {
   unsubscribe(observer) {
     this._observers.delete(observer);
   }
-  
+
   notify(data) {
-    this._observers.forEach((observer) => observer.update(data));
+    this._observers.forEach((observer) => observer.render(data));
   }
 }

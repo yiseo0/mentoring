@@ -5,54 +5,48 @@ export default {
     {
       groupId: "G-0",
       groupTitle: "To Do",
-      groupTask: [
+      groupTasks: [
         {
           taskId: "T-0",
           taskTitle: "작업1",
           taskAssignee: "정이서",
-          taskUpdateAt: "2024-03-19 01:19",
         },
         {
           taskId: "T-1",
           taskTitle: "작업2",
           taskAssignee: "정이서",
-          taskUpdateAt: "2024-03-19 01:19",
         },
       ],
     },
     {
       groupId: "G-1",
       groupTitle: "Doing",
-      groupTask: [
+      groupTasks: [
         {
-          taskId: "T-3",
+          taskId: "T-2",
           taskTitle: "작업3",
           taskAssignee: "정이서",
-          taskUpdateAt: "2024-03-19 01:19",
         },
         {
-          taskId: "T-4",
+          taskId: "T-3",
           taskTitle: "작업4",
           taskAssignee: "정이서",
-          taskUpdateAt: "2024-03-19 01:19",
         },
       ],
     },
     {
       groupId: "G-2",
       groupTitle: "Done",
-      groupTask: [
+      groupTasks: [
         {
-          taskId: "T-5",
+          taskId: "T-4",
           taskTitle: "작업5",
           taskAssignee: "정이서",
-          taskUpdateAt: "2024-03-19 01:19",
         },
         {
-          taskId: "T-6",
+          taskId: "T-5",
           taskTitle: "작업6",
           taskAssignee: "정이서",
-          taskUpdateAt: "2024-03-19 01:19",
         },
       ],
     },
